@@ -1,3 +1,3 @@
-# Dojo-App
+# Dojo-App SBlog 
 
-React application created for understanding react fundamentals.
+Basic blog app made with React. 
