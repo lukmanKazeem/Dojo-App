@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
+
 
 const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    const [author, setAuthor] = useState('nan');
+    const [author, setAuthor] = useState('yoshi');
     const [isPending, setIsPending] = useState(false);
+    const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,7 +23,10 @@ const Create = () => {
         }).then(() => {
             console.log('New blog added');
             setIsPending(false);
+            // history.go(-1);
+            history.push('/');
         })
+
     }
 
 
@@ -38,13 +45,13 @@ const Create = () => {
                 <label>Blog title</label>
                 <textarea
                     required
-                    value={ body }
+                    value={body}
                     onChange={(e) => setBody(e.target.value)}
                 ></textarea>
 
                 <label>Blog author:</label>
                 <select
-                    value = {author}
+                    value={author}
                     onChange={(e) => setAuthor(e.target.value)}
                 >
                     <option value='mario'>mario</option>
